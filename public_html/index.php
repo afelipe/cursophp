@@ -1,5 +1,5 @@
 <?php
-
+// Coment
 define ('APPLICATION_ENV', getenv('APPLICATION_ENV'));
 
 require_once("../application/models/applicationModel.php");
