@@ -1,5 +1,5 @@
 <?php
-// Coment
+
 define ('APPLICATION_ENV', getenv('APPLICATION_ENV'));
 
 require_once("../application/models/applicationModel.php");
@@ -13,10 +13,6 @@ require_once("../application/models/usersModel.php");
 require_once("../application/models/usersDbModel.php");
 require_once("../application/views/helpers/formHelper.php");
 require_once("../application/models/projectsDbModel.php");
-
-
-
-// die;
 
 require_once("../application/bootstrap.php");
 

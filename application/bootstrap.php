@@ -14,7 +14,14 @@ $cnx=connect($config['database.server'],
 if(!isset($_GET['controller']))
 	$controller='index';
 else
-	$controller=$_GET['controller'];
+{
+	
+	if(file_exists($_SERVER['DOCUMENT_ROOT']."/../application/controllers/".
+				  $_GET['controller'].".php"))
+		$controller=$_GET['controller'];
+	else
+		$controller='error';
+}
 
 switch($controller)
 {
@@ -24,6 +31,10 @@ switch($controller)
 	case 'projects':
 		include_once("../application/controllers/projects.php");
 	break;
+	case 'error':
+		include_once("../application/controllers/error.php");
+	break;
+	case 'index':
 	default:
 		die("aqui");
 	break;
