@@ -19,7 +19,7 @@ switch($action)
 			$photoName=renameUserPhoto($_FILES,$config['uploads_dir']);
 			
 			updateToFile($photoName, $_GET['id'],$filename );
-			header("location: users.php");
+			header("location: /users");
 			exit();
 		}
 		else
@@ -30,10 +30,11 @@ switch($action)
 // 		Mostrar formulario vacio
 		if($_POST)
 		{				
+			_debug($_POST);
 			$photoName=renameUserPhoto($_FILES,$config['uploads_dir']);
 			$_POST['photo']=$photoName;
 			insertUser($cnx,$_POST);
-			header("location: users.php");
+			header("location: /users");
 			exit();
 		}
 		else
@@ -63,12 +64,12 @@ switch($action)
  			if($_POST['Submit']=='si')
  			{
  				deleteUser($_POST['id']);
-	 			header("location: users.php");
+	 			header("location: /users");
 	 			exit();
  			}
 			else
 			{
-				header("location: users.php");
+				header("location: /users");
 				exit();
 			}
  		}

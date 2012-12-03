@@ -1,18 +1,17 @@
 <?php
 
-define ('APPLICATION_ENV', getenv('APPLICATION_ENV'));
+defined('APPLICATION_ENV')?:
+	define ('APPLICATION_ENV', getenv('APPLICATION_ENV'));
 
-require_once("../application/models/applicationModel.php");
+defined('APPLICATION_PATH')?:
+	define ('APPLICATION_PATH', '../application');
+	
+require_once(APPLICATION_PATH."/models/applicationModel.php");
+require_once(APPLICATION_PATH."/models/mysqlModel.php");
+require_once(APPLICATION_PATH."/models/usersModel.php");
+require_once(APPLICATION_PATH."/models/usersDbModel.php");
+require_once(APPLICATION_PATH."/views/helpers/formHelper.php");
+require_once(APPLICATION_PATH."/models/projectsDbModel.php");
 
-$configFilename="../application/configs/application.ini";
-$config=readConfig($configFilename, APPLICATION_ENV);
-setRequest();
-
-require_once("../application/models/mysqlModel.php");
-require_once("../application/models/usersModel.php");
-require_once("../application/models/usersDbModel.php");
-require_once("../application/views/helpers/formHelper.php");
-require_once("../application/models/projectsDbModel.php");
-
-require_once("../application/bootstrap.php");
+require_once(APPLICATION_PATH."/bootstrap.php");
 

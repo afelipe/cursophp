@@ -6,7 +6,7 @@ $arrayUsers=$params['arrayUsers'];
 // echo "</pre>";
 ?>
 
-<a href="?controller=users&action=insert">Agregar</a>
+<a href="/users/insert">Agregar</a>
 <table border=1>
 	<tr>
 		<th>id</th>

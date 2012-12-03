@@ -1,6 +1,7 @@
 <?php
 
-
+$configFilename="../application/configs/application.ini";
+$config=readConfig($configFilename, APPLICATION_ENV);
 
 $cnx=connect($config['database.server'],
 		$config['database.db'],
@@ -8,6 +9,7 @@ $cnx=connect($config['database.server'],
 		$config['database.password']
 );
 
+setRequest();
 
 
 
@@ -16,12 +18,12 @@ if(!isset($_GET['controller']))
 else
 {
 	
-	if(file_exists($_SERVER['DOCUMENT_ROOT']."/../application/controllers/".
-				  $_GET['controller'].".php"))
+	if(file_exists($_SERVER['DOCUMENT_ROOT']."/../application/controllers/".$_GET['controller'].".php"))
 		$controller=$_GET['controller'];
 	else
 		$controller='error';
 }
+
 
 switch($controller)
 {
